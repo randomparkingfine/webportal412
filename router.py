@@ -1,13 +1,22 @@
-from flask import Flask
+from flask import Flask, session
+from flask_session import Session
 from flask import request
-from flask import render_template, url_for
+from flask import render_template
 
-@app.route('/', method=['GET'])
+sesh = Session()
+
+app = Flask(__name__)
+sesh.init_app(app)
+
+
+@app.route('/', methods=['GET', 'POST'])
 def home():
-    if requeset.method == 'GET':
-        return render_template('index')
+    if request.method == 'GET':
+        return render_template('index.html')
     elif request.method == 'POST':
         pass
     else:
         return 'Method not supported', 400
 
+if __name__ == "__main__":
+    app.run()
