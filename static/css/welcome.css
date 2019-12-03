@@ -1,0 +1,32 @@
+/* Overrides for the welcome page background stuff */
+/*  For now we'll just worry about dark mode 
+    Light mode gets fucked here lmao
+*/
+body {
+  background: #303030;
+}
+
+label {
+  color: white;
+}
+
+h1 {
+  color: white;
+  display: block;
+}
+
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+::placeholder {
+  color: #303030;
+}
+
+input {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+/*# sourceMappingURL=welcome.css.map */
