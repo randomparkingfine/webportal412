@@ -18,6 +18,8 @@ class DB:
         # port: 3306
         # dbname: czb69utqx3tir481
 
+        # NOTE: don't ever do this in ANY codebase(keeping passwords in code)
+        # I'm doing it here to reduce cognitive load
         self.config = {
             'user':'hai32064fkjrmfsl',
             'password':'k0jmbqf380zmenkj',
@@ -28,6 +30,17 @@ class DB:
         self.conn = mysql.connector.connect(**self.config)
         self.conn.close()
 
+    def search(self, **values):
+        pass
+
+    def insert(self, **values):
+        pass
+
+    def delete(self, key):
+        pass
+
+    def close(self):
+        self.conn.close()
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
