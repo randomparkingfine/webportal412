@@ -20,10 +20,10 @@ class DB:
 
         self.config = {
             'user':'hai32064fkjrmfsl',
-            'pass':'k0jmbqf380zmenkj',
+            'password':'k0jmbqf380zmenkj',
             'host':'bfjrxdpxrza9qllq.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
             'port':'3306',
-            'dbname':'czb69utqx3tir481',
+            'database':'czb69utqx3tir481',
         }
         self.conn = mysql.connector.connect(**self.config)
         self.conn.close()
@@ -57,4 +57,5 @@ def delete():
 
 
 if __name__ == "__main__":
-    app.run()
+    #app.run()
+    pass
