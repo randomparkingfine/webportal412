@@ -1,79 +1,104 @@
-<form id="frmSave" method="post">
+<!DOCTYPE html>
 
-        <!---// Equipment Asset Number //-->
-        <div class="form-group">
-            <label for="txtAssetNumber">Asset Number </label>
-            <input type="text" class="form-control" id="txtAssetNumber" name="txtAssetNumber" placeholder="Enter Asset Number" value="">
+<head>
+
+    <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.1/build/pure-min.css" integrity="sha384-oAOxQR6DkCoMliIh8yFnu25d7Eq/PHS21PClpwjOTeU2jRSq11vu66rf90/cZr47" crossorigin="anonymous">
+
+</head>
+
+<body>
+
+    <div class="pure-g">
+        <div class="pure-u-1-2">
+            <form id="formCreate" method="post">
+                <!---// Equipment Asset Number //-->
+                <div class="form-group">
+                    <label for="txtAssetNumber">Asset Number </label>
+                    <input type="text" class="form-control" id="txtAssetNumber" name="txtAssetNumber" placeholder="Enter Asset Number" value="">
+                </div>
+
+                <!---// Manufacturer Name //-->
+                <div class="form-group">
+                    <label for="txtManufacturerName">Manufacturer Name: </label>
+                    <input type="text" class="form-control" id="txtManufacturerName" name="txtManufacturerName" placeholder="Enter Manufacturer Name" value="">
+                </div>
+
+                <!---// Manufacturer Address //-->
+                <div class="form-group">
+                    <label for="txtManufacturerAddress">Manufacturer Address: </label>
+                    <input type="text" class="form-control" id="txtManufacturerAddress" name="txtManufacturerAddress" placeholder="Enter Manufacturer Address" value="">
+                </div>
+
+                <!---// Manufacturer Phone //-->
+                <div class="form-group">
+                    <label for="txtManufacturerPhone">Manufacturer Phone: </label>
+                    <input type="text" class="form-control" id="txtManufacturerPhone" name="txtManufacturerPhone" placeholder="Enter Manufacturer Phone" value="">
+                </div>
+
+                <!---// Manufacturer Web Page //-->
+                <div class="form-group">
+                    <label for="txtManufacturerWebPage">Manufacturer Web Page: </label>
+                    <input type="text" class="form-control" id="txtManufacturerWebPage" name="txtManufacturerWebPage" placeholder="Enter Manufacturer Web Page" value="">
+                </div>
+
+                <!---// Model //-->
+                <div class="form-group">
+                    <label for="txtManufacturer">Model: </label>
+                    <input type="text" class="form-control" id="txtManufacturer" name="txtManufacturer" placeholder="Enter Model" value="">
+                </div>
+
+                <!---// Purchased Date //-->
+                <div class="form-group">
+                    <label for="txtDatePurchased">Purchase Date: </label>
+                    <input type="text" class="form-control" id="txtDatePurchased" name="txtDatePurchased" placeholder="Enter Purchase Date" value="">
+                </div>
+
+                <!---// Purchase Price //-->
+                <div class="form-group">
+                    <label for="txtPurchasePrice">Purchase Price: </label>
+                    <input type="text" class="form-control" id="txtPurchasePrice" name="txtPurchasePrice" placeholder="Enter Purchase Price" value="">
+                </div>
+
+                <!---// Warranty Expiration Date //-->
+                <div class="form-group">
+                    <label for="txtExpirationDate">Warranty Expiration Date: </label>
+                    <input type="text" class="form-control" id="txtExpirationDate" name="txtExpirationDate" placeholder="Enter Expiration Date" value="">
+                </div>
+
+                <!---// Retired Date //-->
+                <div class="form-group">
+                    <label for="txtRetiredDate">Warranty Expiration Date: </label>
+                    <input type="text" class="form-control" id="txtRetiredDate" name="txtRetiredDate" placeholder="Enter Retired Date" value="">
+                </div>
+
+                <!---// Description //-->
+                <div class="form-group">
+                    <label for="txtDescription">Description: </label>
+                    <input type="text" class="form-control" id="txtDescription" name="txtDescription" placeholder="Enter Description" value="">
+                </div>
+
+                <!---// Comments //-->
+                <div class="form-group">
+                    <label for="txtComments">Comments: </label>
+                    <textarea class="form-control" rows="5" name="txtComments"></textarea>
+                    <input type="hidden" name="txtComments" value="1">
+                </div>
+                <input type="submit" value="Submit">
+            </form>
         </div>
 
-        <!---// Manufacturer Name //-->
-        <div class="form-group">
-            <label for="txtManufacturerName">Manufacturer Name: </label>
-            <input type="text" class="form-control" id="txtManufacturerName" name="txtManufacturerName" placeholder="Enter Manufacturer Name" value="">
+        <div class="pure-u-1-2">
+            <form id="formSearch" method="post">
+                <!---// Search by Asset Number //-->
+                <div class="form-group">
+                    <label for="txtSearchAsset">Search Asset Number </label>
+                    <input type="text" class="form-control" id="txtSearchAsset" name="txtSearchAsset" placeholder="Enter Asset Number" value="">
+                </div>
+                <input type="submit" value="Submit">
+            </form>
         </div>
 
-        <!---// Manufacturer Address //-->
-        <div class="form-group">
-            <label for="txtManufacturerAddress">Manufacturer Address: </label>
-            <input type="text" class="form-control" id="txtManufacturerAddress" name="txtManufacturerAddress" placeholder="Enter Manufacturer Address" value="">
-        </div>
+    </div>
 
-		<!---// Manufacturer Phone //-->
-        <div class="form-group">
-            <label for="txtManufacturerPhone">Manufacturer Phone: </label>
-            <input type="text" class="form-control" id="txtManufacturerPhone" name="txtManufacturerPhone" placeholder="Enter Manufacturer Phone" value="">
-        </div>  
-
-        <!---// Manufacturer Web Page //-->
-        <div class="form-group">
-            <label for="txtManufacturerWebPage">Manufacturer Web Page: </label>
-            <input type="text" class="form-control" id="txtManufacturerWebPage" name="txtManufacturerWebPage" placeholder="Enter Manufacturer Web Page" value="">
-        </div>        
-
-        <!---// Model //-->
-        <div class="form-group">
-            <label for="txtManufacturer">Model: </label>
-            <input type="text" class="form-control" id="txtManufacturer" name="txtManufacturer" placeholder="Enter Model" value="">
-        </div>
-
-        <!---// Purchased Date //-->
-        <div class="form-group">
-            <label for="txtDatePurchased">Purchase Date: </label>
-            <input type="text" class="form-control" id="txtDatePurchased" name="txtDatePurchased" placeholder="Enter Purchase Date" value="">
-        </div>
-
-        <!---// Purchase Price //-->
-        <div class="form-group">
-            <label for="txtPurchasePrice">Purchase Price: </label>
-            <input type="text" class="form-control" id="txtPurchasePrice" name="txtPurchasePrice" placeholder="Enter Purchase Price" value="">
-        </div>
-
-        <!---// Warranty Expiration Date //-->
-        <div class="form-group">
-            <label for="txtExpirationDate">Warranty Expiration Date: </label>
-            <input type="text" class="form-control" id="txtExpirationDate" name="txtExpirationDate" placeholder="Enter Expiration Date" value="">
-        </div>
-
-        <!---// Retired Date //-->
-        <div class="form-group">
-            <label for="txtRetiredDate">Warranty Expiration Date: </label>
-            <input type="text" class="form-control" id="txtRetiredDate" name="txtRetiredDate" placeholder="Enter Retired Date" value="">
-        </div>
-
-        <!---// Description //-->
-        <div class="form-group">
-            <label for="txtDescription">Description: </label>
-            <input type="text" class="form-control" id="txtDescription" name="txtDescription" placeholder="Enter Description" value="">
-        </div>
-
-        <!---// Comments //-->
-        <div class="form-group">
-            <label for="txtComments">Comments: </label>
-            <textarea class="form-control" rows="5" name="txtComments"></textarea>
-            <input type="hidden" name="txtComments" value="1">
-        </div>
-
-        <input type="submit" value="Submit">
-
-</form>
+</body>
                             
