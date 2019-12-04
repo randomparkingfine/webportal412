@@ -36,9 +36,9 @@ class DB:
     def insert(self, values):
         # generate the format string we need to actually build the meme
         now = datetime.now().date()
-        ins_str =   'INSERT INTO assets(asset_no, m_name, m_addess,' +
-                    'm_phone, m_website, model, purchase_date,' +
-                    'price, exp_date, retire_date, description, comments)' +
+        ins_str =   'INSERT INTO assets(asset_no, m_name, m_addess,' \
+                    'm_phone, m_website, model, purchase_date,' \
+                    'price, exp_date, retire_date, description, comments)' \
                     'VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
         cursor = self.self.conn.cursor()
 
@@ -78,5 +78,5 @@ def delete():
 
 
 if __name__ == "__main__":
-    #app.run()
+    app.run()
     pass
