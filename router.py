@@ -46,10 +46,13 @@ def insert():
 
 @app.route('/search', methods=['POST'])
 def search():
+    '''
+    Request parameters are found in request.form for forms btw
+    '''
     pass
 
 @app.route('/delete', methods=['POST'])
-def search():
+def delete():
     pass
 
 
