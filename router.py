@@ -5,10 +5,9 @@ from flask_session import Session
 from flask import request, redirect, url_for
 from flask import render_template
 from random import randint
-from datetime import date, datetime
 
 
-query = "INSERT INTO assets(asset_no, m_name, m_address, m_phone, m_website, model, purchase_date, price, exp_date, retire_date, description, comments) " \
+query = "INSERT INTO  assets(asset_no, m_name, m_address, m_phone, m_website, model, purchase_date, price, exp_date, retire_date, description, comments) " \
             "VALUES(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)"
 
 app = Flask(__name__)
@@ -22,8 +21,6 @@ class DB:
         # port: 3306
         # dbname: czb69utqx3tir481
 
-        # NOTE: don't ever do this in ANY codebase(keeping passwords in code)
-        # I'm doing it here to reduce cognitive load
         self.config = {
             'user':'hai32064fkjrmfsl',
             'password':'k0jmbqf380zmenkj',
@@ -32,30 +29,31 @@ class DB:
             'database':'czb69utqx3tir481',
         }
         self.conn = mysql.connector.connect(**self.config)
-
-    def search(self, **values):
-        pass
-
-    def insert(self, values):
-        # generate the format string we need to actually build the meme
-        now = datetime.now().date()
-        ins_str =   'INSERT INTO assets(asset_no, m_name, m_addess,' \
-                    'm_phone, m_website, model, purchase_date,' \
-                    'price, exp_date, retire_date, description, comments)' \
-                    'VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
-        cursor = self.conn.cursor()
-
-        cursor.execute(ins_str, values)
-
-    def delete(self, key):
-        d_str = 'DELETE FROM assets WHERE asset_no=?'
-        cursor = self.conn.cursor()
-        cursor.execute(d_str, (key))
-        self.conn.commit()
-
-    def close(self):
+        curs = self.conn.cursor(buffered=True)
+        curs.close()
         self.conn.close()
+        #cursor.execute("CREATE TABLE assets (name TEXT)")
+        
 
+    def insert_asset(self, args):
+    	self.conn = mysql.connector.connect(**self.config)
+    	curs = self.conn.cursor(buffered=True)
+    	curs.execute(query, args)
+    	print(curs.execute("SHOW TABLES"))
+    	curs.close()
+    	self.conn.close()
+
+    def select_query(self):
+    	sql_select_query = "select * from assets"
+    	self.conn = mysql.connector.connect(**self.config)
+    	curs = self.conn.cursor(buffered=True)
+    	curs.execute(sql_select_query)
+    	records = curs.fetchall()
+    	print("Total number of rows in assets is: ", curs.rowcount)
+    	self.conn.close()
+
+
+        
 @app.route('/', methods=['GET', 'POST'])
 def home():
     if request.method == 'GET':
@@ -79,8 +77,8 @@ def home():
     		retired = request.form['txtRetiredDate']
     		descript = request.form['txtDescription']
     		comments = request.form['txtComments']
-    		args = (int(assest_num), nm, addr, phone, web, model, date_purch, price, expr, retired, descript, comments)
-    		database.insert_asset(args)
+    		#args = (assest_num, nm, addr, phone, web, model, date_purch, price, expr, retired, descript, comments)
+    		#database.insert_asset(args)
 
     else:
         return 'Method not supported', 400
@@ -120,22 +118,6 @@ def search():
 def search():
     pass
 """
-
-@app.route('/insert', methods=['POST'])
-def insert():
-    pass
-
-@app.route('/search', methods=['POST'])
-def search():
-    '''
-    Request parameters are found in request.form for forms btw
-    '''
-    pass
-
-@app.route('/delete', methods=['POST'])
-def delete():
-    pass
-
 
 if __name__ == "__main__":
     app.run(debug=True)
