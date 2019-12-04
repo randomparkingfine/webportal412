@@ -5,6 +5,7 @@ from flask_session import Session
 from flask import request
 from flask import render_template
 from random import randint
+from datetime import date, datetime
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = secrets.token_urlsafe(32)
@@ -28,13 +29,20 @@ class DB:
             'database':'czb69utqx3tir481',
         }
         self.conn = mysql.connector.connect(**self.config)
-        self.conn.close()
 
     def search(self, **values):
         pass
 
-    def insert(self, **values):
-        pass
+    def insert(self, *values):
+        # generate the format string we need to actually build the meme
+        now = datetime.now().date()
+        ins_str =   'INSERT INTO assets(asset_no, m_name, m_addess,' +
+                    'm_phone, m_website, model, purchase_date,' +
+                    'price, exp_date, retire_date, description, comments)' +
+                    'VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
+        cursor = self.self.conn.cursor()
+
+        cursor.execute(ins_str, tuple(values))
 
     def delete(self, key):
         pass
