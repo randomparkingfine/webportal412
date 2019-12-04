@@ -40,12 +40,15 @@ class DB:
                     'm_phone, m_website, model, purchase_date,' \
                     'price, exp_date, retire_date, description, comments)' \
                     'VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
-        cursor = self.self.conn.cursor()
+        cursor = self.conn.cursor()
 
         cursor.execute(ins_str, values)
 
     def delete(self, key):
-        pass
+        d_str = 'DELETE FROM assets WHERE asset_no=?'
+        cursor = self.conn.cursor()
+        cursor.execute(d_str, (key))
+        self.conn.commit()
 
     def close(self):
         self.conn.close()
