@@ -33,7 +33,7 @@ class DB:
     def search(self, **values):
         pass
 
-    def insert(self, *values):
+    def insert(self, values):
         # generate the format string we need to actually build the meme
         now = datetime.now().date()
         ins_str =   'INSERT INTO assets(asset_no, m_name, m_addess,' +
@@ -42,7 +42,7 @@ class DB:
                     'VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
         cursor = self.self.conn.cursor()
 
-        cursor.execute(ins_str, tuple(values))
+        cursor.execute(ins_str, values)
 
     def delete(self, key):
         pass
