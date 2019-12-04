@@ -20,7 +20,7 @@
                 <!---// Manufacturer Name //-->
                 <div class="form-group">
                     <label for="txtManufacturerName">Manufacturer Name: </label>
-                    <input type="text" class="form-control" id="txtManufacturerName" name="txtManufacturerName" placeholder="Enter Manufacturer Name" value="">
+                    <input type="text" class="form-control" id="txtManufacturerName" name="txtManufacturerName" placeholder="Enter Manufacturer Name" value={{data["asset_num"]}}>
                 </div>
 
                 <!---// Manufacturer Address //-->
@@ -83,18 +83,8 @@
                     <textarea class="form-control" rows="5" name="txtComments"></textarea>
                     <input type="hidden" name="txtComments" value="1">
                 </div>
-                <input type="submit" name="submit" value="create">
-            </form>
-        </div>
-
-        <div class="pure-u-1-2">
-            <form id="formSearch" method="post">
-                <!---// Search by Asset Number //-->
-                <div class="form-group">
-                    <label for="txtSearchAsset">Search Asset Number </label>
-                    <input type="text" class="form-control" id="txtSearchAsset" name="txtSearchAsset" placeholder="Enter Asset Number" value="">
-                </div>
-                <input type="submit" name="submit" value="search">
+                <input type="submit" name="submit" value="Update">
+                <input type="submit" name="submit" value="Return">
             </form>
         </div>
 
