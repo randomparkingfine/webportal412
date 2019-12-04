@@ -1,0 +1,7 @@
+{
+	"name":"Admin Page",
+	"description":"412 stuff",
+	"scripts": {
+		"postdeploy": "python3 router.py"
+	}
+}
