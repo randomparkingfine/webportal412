@@ -14,7 +14,7 @@
                 <!---// Equipment Asset Number //-->
                 <div class="form-group">
                     <label for="txtAssetNumber">Asset Number </label>
-                    <input type="text" class="form-control" id="txtAssetNumber" name="txtAssetNumber" placeholder="Enter Asset Number" value="">
+                    <input type="text" class="form-control" id="txtAssetNumber" name="txtAssetNumber" placeholder="Enter Asset Number" value={{data["asset_num"]}}>
                 </div>
 
                 <!---// Manufacturer Name //-->
@@ -50,37 +50,37 @@
                 <!---// Purchased Date //-->
                 <div class="form-group">
                     <label for="txtDatePurchased">Purchase Date: </label>
-                    <input type="text" class="form-control" id="txtDatePurchased" name="txtDatePurchased" placeholder="Enter Purchase Date" value="">
+                    <input type="text" class="form-control" id="txtDatePurchased" name="txtDatePurchased" placeholder="Enter Purchase Date" value={{data["asset_num"]}}>
                 </div>
 
                 <!---// Purchase Price //-->
                 <div class="form-group">
                     <label for="txtPurchasePrice">Purchase Price: </label>
-                    <input type="text" class="form-control" id="txtPurchasePrice" name="txtPurchasePrice" placeholder="Enter Purchase Price" value="">
+                    <input type="text" class="form-control" id="txtPurchasePrice" name="txtPurchasePrice" placeholder="Enter Purchase Price" value={{data["asset_num"]}}>
                 </div>
 
                 <!---// Warranty Expiration Date //-->
                 <div class="form-group">
                     <label for="txtExpirationDate">Warranty Expiration Date: </label>
-                    <input type="text" class="form-control" id="txtExpirationDate" name="txtExpirationDate" placeholder="Enter Expiration Date" value="">
+                    <input type="text" class="form-control" id="txtExpirationDate" name="txtExpirationDate" placeholder="Enter Expiration Date" value={{data["asset_num"]}}>
                 </div>
 
                 <!---// Retired Date //-->
                 <div class="form-group">
                     <label for="txtRetiredDate">Warranty Expiration Date: </label>
-                    <input type="text" class="form-control" id="txtRetiredDate" name="txtRetiredDate" placeholder="Enter Retired Date" value="">
+                    <input type="text" class="form-control" id="txtRetiredDate" name="txtRetiredDate" placeholder="Enter Retired Date" value={{data["asset_num"]}}>
                 </div>
 
                 <!---// Description //-->
                 <div class="form-group">
                     <label for="txtDescription">Description: </label>
-                    <input type="text" class="form-control" id="txtDescription" name="txtDescription" placeholder="Enter Description" value="">
+                    <input type="text" class="form-control" id="txtDescription" name="txtDescription" placeholder="Enter Description" value={{data["asset_num"]}}>
                 </div>
 
                 <!---// Comments //-->
                 <div class="form-group">
-                    <label for="txtComments">Comments: </label>
-                    <textarea class="form-control" rows="5" name="txtComments"></textarea>
+                    <label for="txtComments" value={{data["asset_num"]}}>Comments: </label>
+                    <textarea class="form-control" rows="5" name="txtComments" value={{data["asset_num"]}}></textarea>
                     <input type="hidden" name="txtComments" value="1">
                 </div>
                 <input type="submit" name="submit" value="Update">
