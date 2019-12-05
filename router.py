@@ -33,8 +33,18 @@ class DB:
         self.conn = mysql.connector.connect(**self.config)
 
 
-    def search(self, **values):
-        pass
+    def search(self, key):
+        search_str = 'SELECT * FROM assets WHERE asset_no=%s'
+        cursor = self.conn.cursor()
+        cursor.execute(search_str, (key,))
+        result = None
+        for i in cursor:
+            result = i
+            break
+        cursor.close()
+        print(result)
+        return result
+        
 
     def insert_asset(self, values):
         # generate the format string we need to actually build the meme
@@ -67,7 +77,7 @@ def home():
     elif request.method == 'POST':
         if request.form['submit'] == 'search':
             session['txtSearchAsset'] = request.form['txtSearchAsset']
-            return redirect(url_for('asset'))
+            return redirect(url_for('asset.html'))
         else:
             database = DB()
             assest_num = request.form['txtAssetNumber']
@@ -116,13 +126,35 @@ def asset():
         elif request.form['submit'] == 'Return':
             return redirect(url_for('home'))
 
+    return render_template('assets', data=info)
+
+
+@app.route('/search', methods=['POST'])
+def search():
+    db = DB()
+    info = {
+        'asset_no': '',
+        'm_name': '',
+        'm_address': '',
+        'm_phone': '',
+        'm_website': '',
+        'model': '',
+        'purchase_date': '',
+        'price': '',
+        'exp_date': '',
+        'retire_date': '',
+        'description': '',
+        'comments': '',
+    }
+    key = request.form['txtSearchAsset']
+    result = db.search(int(key))
+    for i, k in enumerate(info):
+        info[k] = result[i]
+
+    db.close()
     return render_template('assets.html', data=info)
 
-
-"""@app.route('/search', methods=['POST'])
-def search():
-    pass
-
+"""
 @app.route('/delete', methods=['POST'])
 def search():
     pass
