@@ -42,7 +42,7 @@ class DB:
             result = i
             break
         cursor.close()
-        print(result)
+        #print(result)
         return result
         
 
@@ -58,9 +58,9 @@ class DB:
         self.conn.commit()
 
     def delete(self, key):
-        d_str = 'DELETE FROM assets WHERE asset_no=?'
+        d_str = 'DELETE FROM assets WHERE asset_no=%s'
         cursor = self.conn.cursor()
-        cursor.execute(d_str, (key))
+        cursor.execute(d_str, (key,))
         self.conn.commit()
 
     def close(self):
@@ -154,11 +154,13 @@ def search():
     db.close()
     return render_template('assets.html', data=info)
 
-"""
 @app.route('/delete', methods=['POST'])
-def search():
-    pass
-"""
+def delete():
+    print(f'form is {request.form}')
+    db = DB()
+    db.delete(int(request.form['asset_no']))
+    db.close()
+    return render_template('index.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
