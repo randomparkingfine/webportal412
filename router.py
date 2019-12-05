@@ -45,6 +45,7 @@ class DB:
                   'VALUES (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)'
         cursor = self.conn.cursor()
         cursor.execute(ins_str, values)
+        self.conn.commit()
 
     def delete(self, key):
         d_str = 'DELETE FROM assets WHERE asset_no=?'
